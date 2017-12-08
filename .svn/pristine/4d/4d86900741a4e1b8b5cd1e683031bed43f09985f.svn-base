@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 路由单元 -->
+	<package name="router_package" namespace="/" extends="struts-default">
+		<action name="router_reg" class="com.opensymphony.xwork2.ActionSupport" method="execute">
+		<!-- 等价于	<result name="success" type="dispatcher">/WEB-INF/views/registry.jsp</result> -->
+			<result>/WEB-INF/views/Registry.jsp</result>
+		</action>
+		<action name="router_saveEmp">
+			<result>/WEB-INF/views/Emp_save.jsp</result>
+		</action>
+		<action name="router_saveDept">
+			<result>/WEB-INF/views/Dept_save.jsp</result>
+		</action>
+		<action name="router_report">
+			<result>/WEB-INF/views/reportFromServer.html</result>
+		</action>
+	</package>
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

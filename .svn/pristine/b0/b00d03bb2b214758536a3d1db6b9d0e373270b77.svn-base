@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>报表页面</title>
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			* {
+				margin: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="reportBtn" class="btn btn-success">加班员工报表</button>
+		<button id="reportBtn1" class="btn btn-success">员工详细报表</button>
+		<button id="showCharts" type="button" class="btn btn-success" >显示图表</button>
+		<table class="table table-hover" style="display: none;">
+			<thead id="head">
+				<tr>
+					<th>部门</th>
+					<th>员工编号</th>
+					<th>员工姓名</th>
+					<th>职称编号</th>
+				</tr>
+			</thead>
+			<tbody id="content">
+				
+			</tbody>
+		</table>
+		<div id="echarts" style="width: 800px;height:500px;"></div>
+		<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="echarts.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				var jsonArray = "";
+				$("#showCharts").hide();
+				$("#reportBtn").click(function() {
+					$("#head").empty();
+					$("#content").empty();
+					$("table").show(1000);
+					$tr = $(document.createElement("tr"));
+					$td1 = $(document.createElement("td"));
+					$td2 = $(document.createElement("td"));
+					$td3 = $(document.createElement("td"));
+					$td4 = $(document.createElement("td"));
+					$td1.text("部门");
+					$tr.append($td1);
+					$td2.text("员工编号");
+					$tr.append($td2);
+					$td3.text("员工姓名");
+					$tr.append($td3);
+					$td4.text("职称编号");
+					$tr.append($td4);
+					$("#head").append($tr);
+					$.ajax({
+						url: "http://localhost:8080/PersonManagement/getReport.action",
+						type: "GET",
+						asynch: true,
+						dataType:"json",
+						success: function(data) {
+							for(var i=0;i<data.length;i++) {
+								var emp = data[i];
+								//1-创建tr节点
+								$tr = $(document.createElement("tr"));
+								for(j in emp) {
+									//2-创建td节点
+									$td = $(document.createElement("td"));
+									//3-向tr节点添加
+									$td.text(emp[j]);
+									$tr.append($td);
+								}
+								//4-向#content添加tr节点
+								$("#content").append($tr);
+							}
+						}
+					});
+				});
+				$("#reportBtn1").click(function() {
+					$("#head").empty();
+					$("#content").empty();
+					$("table").show(1000);
+					$tr = $(document.createElement("tr"));
+					$td1 = $(document.createElement("td"));
+					$td2 = $(document.createElement("td"));
+					$td3 = $(document.createElement("td"));
+					$td4 = $(document.createElement("td"));
+					$td5 = $(document.createElement("td"));
+					$td6 = $(document.createElement("td"));
+					$td7 = $(document.createElement("td"));
+					$td8 = $(document.createElement("td"));
+					$td9 = $(document.createElement("td"));
+					$td1.text("员工编号");
+					$tr.append($td1);
+					$td2.text("员工姓名");
+					$tr.append($td2);
+					$td3.text("部门名称");
+					$tr.append($td3);
+					$td4.text("平均工资");
+					$tr.append($td4);
+					$td5.text("个人工资");
+					$tr.append($td5);
+					$td6.text("请假次数");
+					$tr.append($td6);
+					$td7.text("请假总人数");
+					$tr.append($td7);
+					$td8.text("加班次数");
+					$tr.append($td8);
+					$td9.text("加班总次数");
+					$tr.append($td9);
+					$("#head").append($tr);
+					$.ajax({
+						url: "http://localhost:8080/PersonManagement/getEmpReport.action",
+						type: "GET",
+						asynch: true,
+						dataType:"json",
+						success: function(data) {
+							jsonArray = data;
+							for(var i=0;i<data.length;i++) {
+								var emp = data[i];
+								//1-创建tr节点
+								$tr = $(document.createElement("tr"));
+								for(j in emp) {
+									//2-创建td节点
+									$td = $(document.createElement("td"));
+									//3-向tr节点添加
+									$td.text(emp[j]);
+									$tr.append($td);
+								}
+								//4-向#content添加tr节点
+								$("#content").append($tr);
+							}
+						}
+					});
+					$("#showCharts").show(300);
+				});
+				
+				$("#showCharts").click(function() {
+					$("#head").empty();
+					$("#content").empty();
+					var myChart = echarts.init(document.getElementById('echarts'));
+					var avgsal = jsonArray[0].avgsal;
+					var sumsal = jsonArray[0].sumsal;
+					var leaveCount = jsonArray[0].leaveCount;
+					var leaveSum = jsonArray[0].sumLeave;
+					var overCount = jsonArray[0].overtimeCount;
+					var overSum = jsonArray[0].overtimeSum;
+					option = {
+						    title : {
+						        text: '员工表现',
+						    },
+						    tooltip : {
+						        trigger: 'axis'
+						    },
+						    legend: {
+						        data:['个人','总计']
+						    },
+						    toolbox: {
+						        show : true,
+						        feature : {
+						            mark : {show: true},
+						            dataView : {show: true, readOnly: false},
+						            magicType : {show: true, type: ['line', 'bar']},
+						            restore : {show: true},
+						            saveAsImage : {show: true}
+						        }
+						    },
+						    calculable : true,
+						    xAxis : [
+						        {
+						            type : 'category',
+						            data : ['工资','请假','加班']
+						        }
+						    ],
+						    yAxis : [
+						        {
+						            type : 'value'
+						        }
+						    ],
+						    series : [
+						        {
+						            name:'个人',
+						            type:'bar',
+						            data:[sumsal,leaveSum,overCount]
+						        },
+						        {
+						            name:'总计',
+						            type:'bar',
+						            data:[avgsal,leaveCount,overSum],
+						        }
+						    ]
+						};
+					myChart.setOption(option);
+				});
+			});
+			
+			
+			
+
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="overtime_crud" namespace="/" extends="struts-default">
+
+		<!-- 员工信息的CURD操作 通配符 -->
+
+		<!-- findAll findById findByName -->
+
+		<action name="overtime_find_*" class="overtimeAction" method="{1}">
+			<result name="success" type="dispatcher">/WEB-INF/views/Overtime_details.jsp
+			</result>
+			<result name="updateFromFindById" type="dispatcher">/WEB-INF/views/Overtime_update.jsp
+			</result>
+		</action>
+
+		<!-- save update delete -->
+		<action name="overtime_*" class="overtimeAction" method="{1}">
+			<result name="success" type="redirectAction">overtime_find_findAll</result>
+		</action>
+
+
+	</package>
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

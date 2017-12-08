@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-10-31 16:39:48 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.company.dao.pojo.Vacation" table="T_VACATION">
+        <id name="vacationId" type="int">
+            <column name="VACATION_ID" />
+            <generator class="native" />
+        </id>
+        <property name="leaveTime" type="date">
+            <column name="LEAVE_TIME" />
+        </property>
+        <property name="manager_id" type="int">
+            <column name="MANAGER_ID" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-11-1 10:05:39 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.company.dao.pojo.Check" table="T_CHECK">
+		<id name="checkId" type="int">
+			<column name="CHECKID" />
+			<generator class="native" />
+		</id>
+		<property name="empno" type="int">
+			<column name="EMPNO" />
+		</property>
+		<property name="checkUp" type="timestamp">
+			<column name="CHECKUP" />
+		</property>
+		<property name="checkDown" type="timestamp">
+			<column name="CHECKDOWN" />
+		</property>
+	</class>
+</hibernate-mapping>

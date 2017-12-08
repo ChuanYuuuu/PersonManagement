@@ -1,0 +1,42 @@
+package com.company.service.dto.vo;
+
+import java.io.Serializable;
+
+import com.company.dao.pojo.Leave;
+import com.company.dao.pojo.Vacation;
+
+public class DayOff implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Vacation vacation;
+	private Leave leave;
+	public DayOff() {
+		// TODO Auto-generated constructor stub
+	}
+	public DayOff(Vacation vacation, Leave leave) {
+		super();
+		this.vacation = vacation;
+		this.leave = leave;
+	}
+	public Vacation getVacation() {
+		return vacation;
+	}
+	public void setVacation(Vacation vacation) {
+		this.vacation = vacation;
+	}
+	public Leave getLeave() {
+		return leave;
+	}
+	public void setLeave(Leave leave) {
+		this.leave = leave;
+	}
+	@Override
+	public String toString() {
+		return "DayOff [vacation=" + vacation + ", leave=" + leave + "]";
+	}
+	
+
+}

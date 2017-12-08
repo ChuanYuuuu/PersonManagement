@@ -1,0 +1,63 @@
+package com.company.service.dto.result;
+
+import java.io.Serializable;
+
+public class DeptInfoReport implements Serializable{
+	private static final long serialVersionUID = 1L;
+		private String dname;
+		private int empno;
+		private String ename;
+		private int jobId;
+		
+		public DeptInfoReport() {
+			// TODO Auto-generated constructor stub
+		}
+
+		public DeptInfoReport(String dname, int empno, String ename, int jobId) {
+			super();
+			this.dname = dname;
+			this.empno = empno;
+			this.ename = ename;
+			this.jobId = jobId;
+		}
+
+		public String getDname() {
+			return dname;
+		}
+
+		public void setDname(String dname) {
+			this.dname = dname;
+		}
+
+		public int getEmpno() {
+			return empno;
+		}
+
+		public void setEmpno(int empno) {
+			this.empno = empno;
+		}
+
+		public String getEname() {
+			return ename;
+		}
+
+		public void setEname(String ename) {
+			this.ename = ename;
+		}
+
+		public int getJobId() {
+			return jobId;
+		}
+
+		public void setJobId(int jobId) {
+			this.jobId = jobId;
+		}
+
+		@Override
+		public String toString() {
+			return "DeptInfoReport [dname=" + dname + ", empno=" + empno + ", ename=" + ename + ", jobId=" + jobId
+					+ "]";
+		}
+
+		
+}

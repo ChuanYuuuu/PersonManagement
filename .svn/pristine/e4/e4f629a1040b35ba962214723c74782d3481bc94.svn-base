@@ -1,0 +1,36 @@
+package com.company.action;
+
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+
+import com.company.dao.pojo.InviteJob;
+import com.company.service.iservice.InviteJobService;
+import com.opensymphony.xwork2.ModelDriven;
+
+@Controller("inviteJobAction")
+@Scope("prototype")
+public class InviteJobAction implements ModelDriven<InviteJob>,SessionAware{
+
+	@Autowired
+	private InviteJobService inviteJobService;
+	
+	private InviteJob inviteModel = new InviteJob();
+	@Override
+	public InviteJob getModel() {
+		// TODO Auto-generated method stub
+		return inviteModel;
+	}
+	
+	@Override
+	public void setSession(Map<String, Object> arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+}

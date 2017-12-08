@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    
+		<!-- 1-Hibernate方言：明确Hibernate与哪一种数据库相连接 -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+
+
+		<!-- 4-在控制台格式化显示Hibernate自动实现的SQL语句 -->
+		<property name="hibernate.show_sql">false</property>
+		<property name="hibernate.format_sql">true</property>
+	
+		<!-- 5-正向工程的配置 
+		create 无论表是否已经存在，都覆盖创建
+		update 表存在就修改，表不存在就创建
+		-->
+		<property name="hibernate.hbm2ddl.auto">create</property>
+
+		<!-- 8-配置MySQL数据库的事务隔离级别 READ_COMMITED  Oracle数据库默认即可 
+			功能1：session缓存应用中的refresh方法才能有效
+			功能2：二級緩存SessionFactoryCache实现与数据库数据实时同步
+		-->
+		<property name="hibernate.connection.isolation">2</property>
+		
+		<!-- 9-当持久化对象执行delete操作时，将该对象的OID设置为null -->
+		<property name="hibernate.use_identifier_rollback">true</property>
+		
+		<!-- 10-提高Hibernate执行性能 -->
+		<!-- 每次从数据库中读取的记录数 -->
+		<property name="hibernate.jdbc.fetch_size">100</property>
+		<!-- 批处理时，每次向服务器提交的SQL数量 -->
+		<property name="hibernate.jdbc.batch_size">30</property>
+		
+		<!-- 11 配置二级缓存SessionFactoryCache -->
+		<property name="cache.use_second_level_cache">true</property>
+		<property name="cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<property name="cache.provider_configuration_file_resource_path">ehcache.xml</property>
+		<!-- 设置查询缓存 作用于Query Criteria对象 -->
+		<property name="cache.use_query_cache">true</property>
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-11-1 9:59:00 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.company.dao.pojo.InviteJob" table="T_INVITEJOB">
+        <id name="inviteId" type="int">
+            <column name="INVITEID" />
+            <generator class="native" />
+        </id>
+        <property name="inviteName" type="java.lang.String">
+            <column name="INVITENAME" />
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="SEX" />
+        </property>
+        <property name="education" type="java.lang.String">
+            <column name="EDUCATION" />
+        </property>
+        <property name="jobId" type="int">
+            <column name="JOBID" />
+        </property>
+        <property name="experience" type="java.lang.String">
+            <column name="EXPERIENCE" />
+        </property>
+    </class>
+</hibernate-mapping>

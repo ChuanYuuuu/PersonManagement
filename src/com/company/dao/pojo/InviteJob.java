@@ -1,0 +1,86 @@
+package com.company.dao.pojo;
+
+import java.io.Serializable;
+
+public class InviteJob implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	private int inviteId;
+	private String inviteName;
+	private String sex;
+	private String education;
+	private int jobId;
+	private String experience;
+	
+	public InviteJob() {
+	}
+
+	public InviteJob(int inviteId, String inviteName, String sex, String education, int jobId, String experience) {
+		super();
+		this.inviteId = inviteId;
+		this.inviteName = inviteName;
+		this.sex = sex;
+		this.education = education;
+		this.jobId = jobId;
+		this.experience = experience;
+	}
+
+	public int getInviteId() {
+		return inviteId;
+	}
+
+	public void setInviteId(int inviteId) {
+		this.inviteId = inviteId;
+	}
+
+	public String getInviteName() {
+		return inviteName;
+	}
+
+	public void setInviteName(String inviteName) {
+		this.inviteName = inviteName;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public String getEducation() {
+		return education;
+	}
+
+	public void setEducation(String education) {
+		this.education = education;
+	}
+	
+	public int getJobId() {
+		return jobId;
+	}
+
+	public void setJobId(int jobId) {
+		this.jobId = jobId;
+	}
+
+	public String getExperience() {
+		return experience;
+	}
+
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
+
+	@Override
+	public String toString() {
+		return "InviteJob [inviteId=" + inviteId + ", inviteName=" + inviteName + ", sex=" + sex + ", education="
+				+ education + ", jobId=" + jobId + ", experience=" + experience + "]";
+	}
+
+	
+	
+	
+
+}

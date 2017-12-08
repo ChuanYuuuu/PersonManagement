@@ -1,0 +1,88 @@
+package com.company.dao.pojo;
+
+import java.io.Serializable;
+import java.util.Date;
+
+public class Emp implements Serializable{
+	private static final long serialVersionUID = 1L;
+	private int empno;
+	private String ename;
+	private String sex;
+	private Date birthday;
+	private String education;
+	private String jobTitle;
+	private int deptno;
+	public Emp() {
+		// TODO Auto-generated constructor stub
+	}
+	public Emp(int empno, String ename, String sex, Date birthday, String education, String jobTitle, int deptno) {
+		super();
+		this.empno = empno;
+		this.ename = ename;
+		this.sex = sex;
+		this.birthday = birthday;
+		this.education = education;
+		this.jobTitle = jobTitle;
+		this.deptno = deptno;
+	}
+	
+	public Emp(String ename, String sex, Date birthday, String education, String jobTitle, int deptno) {
+		super();
+		this.ename = ename;
+		this.sex = sex;
+		this.birthday = birthday;
+		this.education = education;
+		this.jobTitle = jobTitle;
+		this.deptno = deptno;
+	}
+	public int getEmpno() {
+		return empno;
+	}
+	public void setEmpno(int empno) {
+		this.empno = empno;
+	}
+	public String getEname() {
+		return ename;
+	}
+	public void setEname(String ename) {
+		this.ename = ename;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	public Date getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+	public String getEducation() {
+		return education;
+	}
+	public void setEducation(String education) {
+		this.education = education;
+	}
+	public String getJobTitle() {
+		return jobTitle;
+	}
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+	public int getDeptno() {
+		return deptno;
+	}
+	public void setDeptno(int deptno) {
+		this.deptno = deptno;
+	}
+	@Override
+	public String toString() {
+		return "Emp [empno=" + empno + ", ename=" + ename + ", sex=" + sex + ", birthday=" + birthday + ", education="
+				+ education + ", jobTitle=" + jobTitle + ", deptno=" + deptno + "]";
+	}
+	
+	
+
+}

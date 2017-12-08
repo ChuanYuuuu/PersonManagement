@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="dept_crud" namespace="/" extends="struts-default">
+
+		<!-- 员工信息的CURD操作 通配符 -->
+
+		<!-- findAll findById findByName -->
+
+		<action name="dept_find_*" class="deptAction" method="{1}">
+			<result name="success" type="dispatcher">/WEB-INF/views/Dept_details.jsp
+			</result>
+			<result name="updateFromFindById" type="dispatcher">/WEB-INF/views/Dept_update.jsp
+			</result>
+		</action>
+
+		<!-- save update delete -->
+		<action name="dept_*" class="deptAction" method="{1}">
+			<result name="success" type="redirectAction">dept_find_findAll</result>
+		</action>
+
+
+	</package>
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

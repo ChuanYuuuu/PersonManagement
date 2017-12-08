@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-10-31 16:25:48 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.company.dao.pojo.Dept" table="T_DEPT">
+        <id name="deptno" type="int">
+            <column name="DEPTNO" />
+            <generator class="native" />
+        </id>
+        <property name="dname" type="java.lang.String">
+            <column name="DNAME" />
+        </property>
+        <property name="ddesc" type="java.lang.String">
+            <column name="D_DESC" />
+        </property>
+        <property name="managerName" type="java.lang.String">
+            <column name="MANAGER_NAME" />
+        </property>
+    </class>
+</hibernate-mapping>

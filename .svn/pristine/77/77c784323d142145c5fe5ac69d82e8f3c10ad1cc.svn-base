@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-11-1 9:58:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.company.dao.pojo.Job" table="T_JOB">
+        <id name="jobId" type="int">
+            <column name="JOBID" />
+            <generator class="native" />
+        </id>
+        <property name="jobTitle" type="java.lang.String">
+            <column name="JOBTITLE" />
+        </property>
+    </class>
+</hibernate-mapping>

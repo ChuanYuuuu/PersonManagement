@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-11-1 9:55:48 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.company.dao.pojo.Pay" table="T_PAY">
+		<id name="payId" type="int">
+			<column name="PAYID" />
+			<generator class="native" />
+		</id>
+		<property name="empno" type="int">
+			<column name="EMPNO" />
+		</property>
+		<property name="payTime" type="date">
+			<column name="PAYTIME" />
+		</property>
+		<property name="sal" type="double">
+			<column name="SAL" />
+		</property>
+		<property name="salAdd" type="double">
+			<column name="SALADD" />
+		</property>
+		<property name="salSub" type="double">
+			<column name="SALSUB" />
+		</property>
+	</class>
+</hibernate-mapping>

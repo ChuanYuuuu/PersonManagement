@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-11-1 9:56:24 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.company.dao.pojo.Overtime" table="T_OVERTIME">
+		<id name="overId" type="int">
+			<column name="OVERID" />
+			<generator class="native" />
+		</id>
+		<property name="empno" type="int">
+			<column name="EMPNO" />
+		</property>
+		<property name="overDate" type="date">
+			<column name="OVERDATE" />
+		</property>
+		<property name="overReason" type="java.lang.String">
+			<column name="OVERREASON" />
+		</property>
+	</class>
+</hibernate-mapping>

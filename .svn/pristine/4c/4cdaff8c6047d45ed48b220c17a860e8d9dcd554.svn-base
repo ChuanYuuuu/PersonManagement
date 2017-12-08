@@ -1,0 +1,82 @@
+package com.company.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.company.dao.idao.CheckDao;
+import com.company.dao.pojo.Check;
+import com.company.service.iservice.CheckService;
+
+@Service("checkService")
+public class CheckServiceImpl implements CheckService {
+	@Autowired
+	private CheckDao checkDao;
+
+	@Transactional
+	@Override
+	public String save(Check t) {
+		String msg = "error";
+		try {
+			checkDao.save(t);
+			msg = "success";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return msg;
+	}
+
+	@Transactional
+	@Override
+	public String update(Check t) {
+		String msg = "error";
+		try {
+			checkDao.update(t);
+			msg = "success";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return msg;
+	}
+
+	@Transactional
+	@Override
+	public String delete(Check t) {
+		String msg = "error";
+		try {
+			checkDao.delete(t);
+			msg = "success";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return msg;
+	}
+
+	@Transactional(readOnly=true)
+	@Override
+	public List<Check> findAll() {
+		List<Check> checkList = new ArrayList<Check>();
+		try {
+			checkList = checkDao.findAll();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return checkList;
+	}
+
+	@Transactional(readOnly=true)
+	@Override
+	public Check findById(Integer k) {
+		Check check = null;
+		try {
+			check = checkDao.findById(k);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return check;
+	}
+
+}
